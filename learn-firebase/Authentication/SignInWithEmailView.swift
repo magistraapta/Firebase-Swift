@@ -17,7 +17,7 @@ final class SignInEmailViewModel: ObservableObject{
             print("Email and password not found!")
             return
         }
-        let returnedUserdata = try await AuthenticationManager.shared.createUser(email: email, password: password)
+        try await AuthenticationManager.shared.createUser(email: email, password: password)
     }
 }
 
