@@ -16,7 +16,7 @@ struct learn_firebaseApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                AuthenticationView()
+                RootView()
             }
         }
     }
