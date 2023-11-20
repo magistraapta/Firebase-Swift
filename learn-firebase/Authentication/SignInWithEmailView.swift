@@ -12,28 +12,19 @@ final class SignInEmailViewModel: ObservableObject{
     @Published var email = ""
     @Published var password = ""
     
-    func signIn(){
+    func signIn() async throws{
         guard !email.isEmpty, !password.isEmpty else {
             print("Email and password not found!")
             return
         }
-        
-        Task{
-            do{
-                let returnedUserdata = try await AuthenticationManager.shared.createUser(email: email, password: password)
-                print("success")
-                print(returnedUserdata)
-            } catch {
-                print("error, \(error)")
-            }
-        }
+        let returnedUserdata = try await AuthenticationManager.shared.createUser(email: email, password: password)
     }
 }
 
 struct SignInWithEmailView: View {
     
     @StateObject private var signInEmailVM = SignInEmailViewModel()
-    
+    @Binding var showSignview: Bool
     var body: some View {
         VStack{
             TextField("Email", text: $signInEmailVM.email)
@@ -48,7 +39,14 @@ struct SignInWithEmailView: View {
                 .textInputAutocapitalization(.never)
             
             Button {
-                signInEmailVM.signIn()
+                Task{
+                    do{
+                        try await signInEmailVM.signIn()
+                        showSignview = false
+                    }catch{
+                        
+                    }
+                }
             } label: {
                 Text("Sign in")
                     .padding()
@@ -67,7 +65,7 @@ struct SignInWithEmailView: View {
 struct SignInWithEmailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignInWithEmailView()
+            SignInWithEmailView(showSignview: .constant(false))
         }
     }
 }
