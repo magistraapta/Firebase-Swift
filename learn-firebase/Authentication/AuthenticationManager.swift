@@ -42,6 +42,7 @@ final class AuthenticationManager{
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    @discardableResult
     func userLogIn(email: String, password: String) async throws -> AuthDataResultModel {
         let userLogin = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: userLogin.user)

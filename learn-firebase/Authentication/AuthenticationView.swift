@@ -22,6 +22,12 @@ struct AuthenticationView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            NavigationLink{
+                LoginWithEmailView(showSignView: $showSignView)
+            } label: {
+                Text("Login here")
+                    .padding()
+            }
         }
         .navigationTitle("Sign up")
         .padding()
