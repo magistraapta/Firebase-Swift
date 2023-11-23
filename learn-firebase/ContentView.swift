@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var showSignView: Bool
     var body: some View {
-        RootView()
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            SettingsView(showSignView: $showSignView)
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ContentView()
+            ContentView(showSignView: .constant(false))
         }
     }
 }
