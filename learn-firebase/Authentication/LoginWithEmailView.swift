@@ -43,7 +43,7 @@ struct LoginWithEmailView: View {
                         try await loginVM.logIn()
                         showSignView = false
                     }catch{
-                        
+                        print(error)
                     }
                 }
             } label: {

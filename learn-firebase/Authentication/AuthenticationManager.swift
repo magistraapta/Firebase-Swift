@@ -19,6 +19,7 @@ struct AuthDataResultModel{
         self.photoUrl = user.photoURL?.absoluteString
     }
 }
+
 final class AuthenticationManager{
     
     static let shared = AuthenticationManager()
@@ -32,7 +33,6 @@ final class AuthenticationManager{
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
-        
         return AuthDataResultModel(user: user)
     }
     
@@ -46,6 +46,29 @@ final class AuthenticationManager{
     func userLogIn(email: String, password: String) async throws -> AuthDataResultModel {
         let userLogin = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: userLogin.user)
+    }
+    
+    func updateEmail(email: String) async throws{
+        guard let user = Auth.auth().currentUser else {throw URLError(.badServerResponse)}
+        try await user.updateEmail(to: email)
+    }
+    
+    func updatePassword(password: String) async throws{
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        try await user.updatePassword(to: password)
+    }
+    
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
+    func verificationEmail() async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        try await user.sendEmailVerification()
     }
     
 }
