@@ -19,6 +19,7 @@
 		3EE459772B0B2BAA00E5255A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE459762B0B2BAA00E5255A /* RootView.swift */; };
 		3EE4597B2B0B338E00E5255A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4597A2B0B338E00E5255A /* SettingsView.swift */; };
 		3EE4597D2B0B38A300E5255A /* LoginWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4597C2B0B38A300E5255A /* LoginWithEmailView.swift */; };
+		3EE4599B2B0DB5CC00E5255A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4599A2B0DB5CC00E5255A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3EE459762B0B2BAA00E5255A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3EE4597A2B0B338E00E5255A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3EE4597C2B0B38A300E5255A /* LoginWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailView.swift; sourceTree = "<group>"; };
+		3EE4599A2B0DB5CC00E5255A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				3EE4596E2B0B18B400E5255A /* GoogleService-Info.plist */,
 				3EE4596A2B0B181A00E5255A /* Authentication */,
 				3EE4595B2B0A5F5500E5255A /* learn_firebaseApp.swift */,
+				3EE4599A2B0DB5CC00E5255A /* HomeView.swift */,
 				3EE4595D2B0A5F5500E5255A /* ContentView.swift */,
 				3EE4595F2B0A5F5700E5255A /* Assets.xcassets */,
 				3EE459612B0A5F5700E5255A /* Preview Content */,
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE4599B2B0DB5CC00E5255A /* HomeView.swift in Sources */,
 				3EE4597B2B0B338E00E5255A /* SettingsView.swift in Sources */,
 				3EE4595E2B0A5F5500E5255A /* ContentView.swift in Sources */,
 				3EE4595C2B0A5F5500E5255A /* learn_firebaseApp.swift in Sources */,
